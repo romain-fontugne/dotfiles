@@ -9,7 +9,7 @@ cd ~/.dotfiles
 ```
 
 ## Other
-Remove previous dotfiles with:
+Remove previous dotfiles and the entire vim directory!
 ```Shell
-./rm_files.sh
+sh rm_files.sh
 ```
