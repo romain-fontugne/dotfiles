@@ -1,2 +1,2 @@
 # dotfiles
-My dotfiles (zsh, vim, tmux)
+My dotfiles (zsh, vim, tmux, screen, git)
