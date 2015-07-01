@@ -29,13 +29,26 @@ antigen bundle python
 # Tell antigen that you're done.
 antigen apply
 
-## ZSH Theme - Preview: modified from gallifrey
+## ZSH Theme 
 PROMPT='%{$FG[245]%}%m:%{$reset_color%}%2~ %B»%b '
 # PROMPT='%{$FG[245]%}%m%{$reset_color%} %2~ $(git_prompt_info)%{$reset_color%}%B»%b '
 RPROMPT='$(git_prompt_info)%{$reset_color%}'
 # RPS1="${return_code}"
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[110]%}‹"
-ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[110]%}\ue0a0 " #%{$FG[110]%}‹"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_AHEAD=" ⬆"
+ZSH_THEME_GIT_PROMPT_BEHIND=" ⬇"
+ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
+ZSH_THEME_GIT_PROMPT_MODIFIED=" ✹"
+ZSH_THEME_GIT_PROMPT_DIRTY=" ✘"
+ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
+ZSH_THEME_GIT_PROMPT_ADDED=" ✚"
+ZSH_THEME_GIT_PROMPT_MODIFIED=" ✹"
+ZSH_THEME_GIT_PROMPT_DELETED=" ✖"
+ZSH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
+ZSH_THEME_GIT_PROMPT_RENAMED=" ➜"
+ZSH_THEME_GIT_PROMPT_UNMERGED=" ═" 
+
 
 # Uncomment this to  check available colors
 # spectrum_ls
