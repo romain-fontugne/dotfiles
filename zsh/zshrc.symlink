@@ -49,7 +49,6 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
 ZSH_THEME_GIT_PROMPT_RENAMED=" ➜"
 ZSH_THEME_GIT_PROMPT_UNMERGED=" ═" 
 
-
 # Uncomment this to  check available colors
 # spectrum_ls
 
