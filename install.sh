@@ -10,6 +10,10 @@ fi
 echo "Installing dotfiles"
 source install/link.sh
 
+if [ -d /usr/share/konsole ]; then
+    sudo cp ~/.dotfiles/konsole/Wombat.colorscheme /usr/share/konsole/
+fi
+
 echo "Installing vundle"
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
