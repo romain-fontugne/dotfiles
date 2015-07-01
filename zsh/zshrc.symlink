@@ -29,8 +29,8 @@ antigen bundle python
 # Tell antigen that you're done.
 antigen apply
 
-# ZSH Theme - Preview: modified from gallifrey
-PROMPT='%{$FG[245]%}%m%{$reset_color%} %2~ %B»%b '
+## ZSH Theme - Preview: modified from gallifrey
+PROMPT='%{$FG[245]%}%m:%{$reset_color%}%2~ %B»%b '
 # PROMPT='%{$FG[245]%}%m%{$reset_color%} %2~ $(git_prompt_info)%{$reset_color%}%B»%b '
 RPROMPT='$(git_prompt_info)%{$reset_color%}'
 # RPS1="${return_code}"
