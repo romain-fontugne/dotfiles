@@ -1,18 +1,5 @@
 #!/bin/bash
 
-if hash zsh 2>/dev/null; then
-    zsh
-else
-    echo "Install zsh"
-    if hash pacman 2>/dev/null; then
-        sudo pacman -Sy zsh
-    else
-        sudo apt-get install zsh
-    fi
-    zsh
-fi
-chsh -s $(which zsh)
-
 if [ ! -d ~/.antigen ]; then
     echo "Installing antigen (zsh)"
     git clone https://github.com/zsh-users/antigen.git ~/.antigen
