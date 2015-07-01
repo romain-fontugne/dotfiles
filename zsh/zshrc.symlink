@@ -14,7 +14,7 @@ antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # For SSH, starting ssh-agent is annoying
-antigen bundle ssh-agent
+# antigen bundle ssh-agent
 
 # Python Plugins
 # antigen bundle pip
