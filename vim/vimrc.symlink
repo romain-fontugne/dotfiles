@@ -83,6 +83,11 @@ vnoremap <C-s> <C-C>:update<CR>
 inoremap <C-s> <C-O>:update<CR>
 
 
+" Quicksave command
+noremap <C-q> :q<CR>
+vnoremap <C-q> <C-C>:q<CR>
+inoremap <C-q> <C-O>:q<CR>
+
 " Quick quit command
 "" noremap <Leader>e :quit<CR>  " Quit current window
 "" noremap <Leader>E :qa!<CR>   " Quit all windows

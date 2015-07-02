@@ -2,6 +2,10 @@ export TERM=xterm-256color
 # alias grep="/usr/bin/grep $GREP_OPTIONS"
 # unset GREP_OPTIONS
 
+# Disable <Ctrl-q> <Ctrl-s> 
+stty -ixon
+ttyctl -f
+
 source ~/.antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -79,6 +83,3 @@ export CVSROOT=gandalf:/export1/Work/cvsroot/
 PATH=$PATH:/home/romain/bin/MATLAB-R2013a/bin:/home/romain/Pixum/Livre\ photo\ Pixum
 export PATH
 
-# Disable <Ctrl-s> 
-alias vim="stty stop '' -ixoff ; vim"
-ttyctl -f
