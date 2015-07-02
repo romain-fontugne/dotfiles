@@ -8,7 +8,7 @@ else
 fi 
 
 echo "Installing dotfiles"
-source install/link.sh
+source ~/.dotfiles/install/link.sh
 
 if [ -d /usr/share/konsole ]; then
     sudo cp ~/.dotfiles/konsole/Wombat.colorscheme /usr/share/konsole/
