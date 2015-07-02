@@ -63,6 +63,7 @@ compinit
 # End of lines added by compinstall
 
 export LC_ALL=en_US.UTF-8
+#export LC_CTYPE=ja_JP.utf8
 
 # ibus for typing japanese
 export GTK_IM_MODULE=ibus
@@ -78,7 +79,6 @@ export CVSROOT=gandalf:/export1/Work/cvsroot/
 PATH=$PATH:/home/romain/bin/MATLAB-R2013a/bin:/home/romain/Pixum/Livre\ photo\ Pixum
 export PATH
 
-#export LC_CTYPE=ja_JP.utf8
 # Disable <Ctrl-s> 
 alias vim="stty stop '' -ixoff ; vim"
 ttyctl -f
