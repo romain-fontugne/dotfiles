@@ -76,6 +76,8 @@ noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
 
+" Highlight the current line
+set cursorline
 
 " Quicksave command
 noremap <C-s> :update<CR>
@@ -83,14 +85,10 @@ vnoremap <C-s> <C-C>:update<CR>
 inoremap <C-s> <C-O>:update<CR>
 
 
-" Quicksave command
-noremap <C-q> :q<CR>
+" Quickquit command
+noremap <C-q> :quit<CR>
 vnoremap <C-q> <C-C>:q<CR>
 inoremap <C-q> <C-O>:q<CR>
-
-" Quick quit command
-"" noremap <Leader>e :quit<CR>  " Quit current window
-"" noremap <Leader>E :qa!<CR>   " Quit all windows
 
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
@@ -117,10 +115,6 @@ vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
 
-" Show whitespace
-" MUST be inserted BEFORE the colorscheme command
-" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-" au InsertLeave * match ExtraWhitespace /\s\+$/
 
 
 " Color scheme
