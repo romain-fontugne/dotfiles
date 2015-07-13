@@ -27,14 +27,16 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 
 Plugin 'sheerun/vim-wombat-scheme'
 
-Plugin 'julienr/vim-cellmode'
+"Plugin 'julienr/vim-cellmode'
 Plugin 'tpope/vim-fugitive'
+
+Plugin 'beloglazov/vim-online-thesaurus'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -188,12 +190,17 @@ set noswapfile
 " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
 "" call pathogen#infect()
 
+" Thesaurus -------------------------------
+let g:online_thesaurus_map_keys = 0
+nnoremap <leader>t :OnlineThesaurusCurrentWord<CR>
+
 
 
 " UtilSnips ------------------------------
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-y>"
+"let g:UltiSnipsExpandTrigger="<c-y>"
+let g:UltiSnipsExpandTrigger = '<f5>'
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -232,7 +239,7 @@ let g:tagbar_autofocus = 1
 " toggle nerdtree display
 map <F3> :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
-nmap ,t :NERDTreeFind<CR>
+"nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
