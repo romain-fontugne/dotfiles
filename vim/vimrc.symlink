@@ -86,7 +86,7 @@ set cursorline
 " Quicksave command
 noremap <C-s> :update<CR>
 vnoremap <C-s> <C-C>:update<CR>
-inoremap <C-s> <C-O>:update<CR>
+inoremap <C-s> <C-C>:update<CR>
 
 
 " Quickquit command
@@ -97,10 +97,10 @@ inoremap <C-q> <C-O>:q<CR>
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
-"" map <c-j> <c-w>j
-"" map <c-k> <c-w>k
-"" map <c-l> <c-w>l
-"" map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
 
 
 " easier moving between tabs
@@ -117,7 +117,6 @@ map <Leader>m <esc>:tabnext<CR>
 " then press ``>`` several times.
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
-
 
 
 
@@ -200,10 +199,9 @@ nnoremap <leader>t :OnlineThesaurusCurrentWord<CR>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 "let g:UltiSnipsExpandTrigger="<c-y>"
-let g:UltiSnipsExpandTrigger = '<f5>'
+let g:UltiSnipsExpandTrigger="<c-y>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 
 " indentLine
 let g:indentLine_color_term = 239 
