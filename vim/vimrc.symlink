@@ -309,7 +309,7 @@ inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 " Don't try to be smarter than latex
-set conceallevel=0
+let g:tex_conceal = ""
 
 " Turn on spell check for tex files
 autocmd BufRead,BufNewFile *.tex setlocal spell
