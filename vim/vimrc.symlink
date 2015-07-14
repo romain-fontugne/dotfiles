@@ -83,6 +83,7 @@ inoremap <C-n> :nohl<CR>
 
 " Highlight the current line
 set cursorline
+set relativenumber
 
 " Quicksave command
 noremap <C-s> :update<CR>
