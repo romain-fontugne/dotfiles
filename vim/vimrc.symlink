@@ -27,9 +27,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 
-"Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 
 Plugin 'sheerun/vim-wombat-scheme'
 
@@ -37,6 +37,7 @@ Plugin 'sheerun/vim-wombat-scheme'
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'beloglazov/vim-online-thesaurus'
+Plugin 'lervag/vimtex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,14 +65,14 @@ set clipboard=unnamed
 set mouse=a  " on OSX press ALT and click
 set bs=2     " make backspace behave like normal again
 
-" Relative line numbers
-set relativenumber
 
 " Rebind <Leader> key
 " I like to have it here becuase it is easier to reach than the default and
 " it is next to ``m`` and ``n`` which I use for navigating between tabs.
 let mapleader = ","
 
+" Speed up redraws
+set lazyredraw
 
 " Bind nohl
 " Removes highlight of your last search
@@ -109,7 +110,7 @@ map <Leader>m <esc>:tabnext<CR>
 
 
 " map sort function to a key
-"" vnoremap <Leader>s :sort<CR>
+vnoremap <Leader>s :sort<CR>
 
 
 " easier moving of code blocks
@@ -117,7 +118,6 @@ map <Leader>m <esc>:tabnext<CR>
 " then press ``>`` several times.
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
-
 
 
 " Color scheme
@@ -141,6 +141,8 @@ filetype off
 filetype plugin indent on
 syntax on
 
+" Don't try to be smarter than latex
+set conceallevel=0
 
 " Showing line numbers and length
 set number  " show line numbers
