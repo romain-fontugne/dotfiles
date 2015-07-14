@@ -144,6 +144,10 @@ syntax on
 " Don't try to be smarter than latex
 set conceallevel=0
 
+" Turn on spell check for tex files
+autocmd BufRead,BufNewFile *.tex setlocal spell
+set complete+=kspell
+
 " Showing line numbers and length
 set number  " show line numbers
 set tw=79   " width of document (used by gd)
