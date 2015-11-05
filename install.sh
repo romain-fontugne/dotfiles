@@ -32,6 +32,6 @@ else
 fi
 
 echo "Compiling YCM"
-cd ~/.vim/bundle/YouCompleteMe; ./install.sh
+cd ~/.vim/bundle/YouCompleteMe; python2 install.py
 # cd ~/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer
 
