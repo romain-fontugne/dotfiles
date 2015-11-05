@@ -1,3 +1,9 @@
 [user]
 	email = romain.fontugne@gmail.com
 	name = romain.fontugne
+[http]
+	proxy = http://proxy.iiji.jp:8080
+[https]
+	proxy = http://proxy.iiji.jp:8080
+[url "https://github.com/"]
+	insteadOf = git://github.com/

@@ -6,6 +6,10 @@ unset GREP_OPTIONS
 stty -ixon
 ttyctl -f
 
+if [ -f ~/.dotfiles/zsh/proxy ]; then
+    source ~/.dotfiles/zsh/proxy
+fi
+
 source ~/.antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
