@@ -249,6 +249,10 @@ let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 
+" vimtex ---------------------------------
+let g:vimtex_fold_enabled = 0
+
+
 " ============================================================================
 " Python IDE Setup
 " ============================================================================
