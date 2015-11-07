@@ -12,6 +12,10 @@ fi
 
 source ~/.antigen/antigen.zsh
 
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
