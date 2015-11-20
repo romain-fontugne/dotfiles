@@ -39,6 +39,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'lervag/vimtex'
 
+Plugin 'phongvcao/vim-stardict'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -194,7 +196,8 @@ set noswapfile
 let g:online_thesaurus_map_keys = 0
 nnoremap <leader>t :OnlineThesaurusCurrentWord<CR>
 
-
+" Stardict  -------------------------------
+nnoremap <leader>d :StarDictCursor<CR>
 
 " UtilSnips ------------------------------
 
