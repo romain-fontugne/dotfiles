@@ -88,6 +88,6 @@ export CVS_RSH
 export CVSROOT=gandalf:/export1/Work/cvsroot/
 
 # User specific aliases and functions
-PATH=$PATH:/home/romain/bin/MATLAB-R2013a/bin:/home/romain/Pixum/Livre\ photo\ Pixum
+PATH=$PATH:/home/romain/bin:/home/romain/bin/MATLAB-R2013a/bin:/home/romain/Pixum/Livre\ photo\ Pixum
 export PATH
 
