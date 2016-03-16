@@ -35,7 +35,7 @@
 # You can also deploy your own backend outside of matplotlib by
 # referring to the module name (which must be in the PYTHONPATH) as
 # 'module://my_backend'.
-backend      : Agg
+#backend      : Agg
 
 # If you are using the Qt4Agg backend, you can choose here
 # to use the PyQt4 bindings or the newer PySide bindings to
@@ -238,7 +238,7 @@ lines.linewidth   : 2.0     # line width in points
 # http://matplotlib.org/api/axes_api.html#module-matplotlib.axes
 #axes.hold           : True    # whether to clear the axes by default on
 #axes.facecolor      : white   # axes background color
-axes.edgecolor      : #262626   # axes edge color
+axes.edgecolor      : 262626   # axes edge color
 #axes.linewidth      : 1.0     # edge linewidth
 axes.grid           : True   # display grid or not
 #axes.titlesize      : large   # fontsize of the axes title
@@ -286,7 +286,7 @@ axes.axisbelow      : True   # whether axis gridlines and ticks are below
 #xtick.minor.width    : 0.5    # minor tick width in points
 #xtick.major.pad      : 4      # distance to major tick label in points
 #xtick.minor.pad      : 4      # distance to the minor tick label in points
-xtick.color          : #262626      # color of the tick labels
+xtick.color          : 262626      # color of the tick labels
 #xtick.labelsize      : medium # fontsize of the tick labels
 #xtick.direction      : in     # direction: in, out, or inout
 
@@ -296,7 +296,7 @@ xtick.color          : #262626      # color of the tick labels
 #ytick.minor.width    : 0.5    # minor tick width in points
 #ytick.major.pad      : 4      # distance to major tick label in points
 #ytick.minor.pad      : 4      # distance to the minor tick label in points
-ytick.color          : #262626      # color of the tick labels
+ytick.color          : 262626      # color of the tick labels
 #ytick.labelsize      : medium # fontsize of the tick labels
 #ytick.direction      : in     # direction: in, out, or inout
 

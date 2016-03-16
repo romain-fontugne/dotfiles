@@ -10,5 +10,5 @@ for file in $linkables ; do
     ln -s $DOTFILES/$file $target
 done
 
-mkdir $HOME/.matplotlib
-ln -s $DOTFILES/config/matplotlib/matplotlibrc.symlink $HOME/.matplotlib/matplotlibrc
+mkdir $HOME/.config/matplotlib
+ln -s $DOTFILES/config/matplotlib/matplotlibrc.symlink $HOME/.config/matplotlib/matplotlibrc
