@@ -9,3 +9,6 @@ for file in $linkables ; do
     echo "creating symlink for $file"
     ln -s $DOTFILES/$file $target
 done
+
+mkdir $HOME/.matplotlib
+ln -s $DOTFILES/config/matplotlib/matplotlibrc.symlink $HOME/.matplotlib/matplotlibrc
