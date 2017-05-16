@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir ~/.vim/undo
+
 if [ ! -d ~/.antigen ]; then
     echo "Installing antigen (zsh)"
     git clone https://github.com/zsh-users/antigen.git ~/.antigen

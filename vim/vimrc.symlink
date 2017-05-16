@@ -63,7 +63,6 @@ filetype plugin indent on    " required
 set pastetoggle=<F2>
 set clipboard=unnamed
 
-
 " Mouse and backspace
 set mouse=a  " on OSX press ALT and click
 set bs=2     " make backspace behave like normal again
@@ -185,11 +184,11 @@ set ignorecase
 set smartcase
 
 
-" Disable stupid backup and swap files - they trigger too many events
-" for file system watchers
-set nobackup
-set nowritebackup
-set noswapfile
+"" Disable stupid backup and swap files - they trigger too many events
+"" for file system watchers
+"set nobackup
+"set nowritebackup
+"set noswapfile
 
 
 " Setup Pathogen to manage your plugins
