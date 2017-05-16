@@ -159,10 +159,15 @@ highlight ColorColumn ctermbg=233
 vmap Q gq
 nmap Q gqap
 
+" Persistent undo
+set undofile
+set undodir=$HOME/.vim/undo
+
+set undolevels=1000
+set undoreload=10000
 
 " Useful settings
 set history=700
-set undolevels=700
 
 
 " Real programmers don't use TABs but spaces
