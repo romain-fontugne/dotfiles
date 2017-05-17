@@ -184,6 +184,10 @@ set ignorecase
 set smartcase
 
 
+" Buffer management
+set hidden
+:nnoremap <F5> :buffers<CR>:buffer<Space>
+
 "" Disable stupid backup and swap files - they trigger too many events
 "" for file system watchers
 "set nobackup
