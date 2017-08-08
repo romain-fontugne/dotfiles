@@ -9,6 +9,11 @@ else
     cd ~/.antigen; git pull
 fi 
 
+echo "Installing tpm"
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 echo "Installing dotfiles"
 source ~/.dotfiles/install/link.sh
 
