@@ -1,7 +1,4 @@
 #set -g default-command "reattach-to-user-namespace -l zsh"
-# tmux display things in 256 colors
-set -g default-terminal "screen-256color"
-set -g status-utf8 on
 
 set -g history-limit 20000
 
@@ -41,9 +38,9 @@ bind = select-layout tiled
 set -g base-index 1
 setw -g pane-base-index 1
 
-# set-option -g set-titles on
-# set-option -g set-titles-string "#T - #W"
-# set-window-option -g automatic-rename on
+set-option -g set-titles on
+set-option -g set-titles-string "#T - #W"
+set-window-option -g automatic-rename on
 
 ######################
 #### Key Bindings ####
@@ -80,11 +77,11 @@ bind -r L resize-pane -R 10
 # enable mouse support for switching panes/windows
 # NOTE: This breaks selecting/copying text on OSX
 # To select text as expected, hold Option to disable it (iTerm2)
-set -g mouse on
-setw -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
-set -g mouse-select-window on
+#set -g mouse on
+#setw -g mode-mouse on
+#set -g mouse-select-pane on
+#set -g mouse-resize-pane on
+#set -g mouse-select-window on
 
 # maximizing and restoring windows
 unbind Up
@@ -92,20 +89,20 @@ bind Up new-window -d -n fullscreen \; swap-pane -s fullscreen.1 \; select-windo
 unbind Down
 bind Down last-window \; swap-pane -s fullscreen.1 \; kill-window -t fullscreen
 
-# set vi mode for copy mode
+## set vi mode for copy mode
 setw -g mode-keys vi
 # more settings to make copy-mode more vim-like
 unbind [
 bind Escape copy-mode
 unbind p
 bind p paste-buffer
-bind -t vi-copy 'v' begin-selection
-bind -t vi-copy 'y' copy-selection
+#bind -t vi-copy 'v' begin-selection
+#bind -t vi-copy 'y' copy-selection
 
-# move x clipboard into tmux paste buffer
-bind C-p run "tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer"
-# # move tmux copy buffer into x clipboard
-bind C-y run "tmux save-buffer - | xclip -i"
+## move x clipboard into tmux paste buffer
+#bind C-p run "tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer"
+## # move tmux copy buffer into x clipboard
+#bind C-y run "tmux save-buffer - | xclip -i"
 
 # Buffers to/from Mac clipboard, yay tmux book from pragprog
 # bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
@@ -116,3 +113,13 @@ bind C-y run "tmux save-buffer - | xclip -i"
 ##############################
 
 source ~/.dotfiles/tmux/theme.sh
+
+#############################
+####   Plugins (TPM)     ####
+############################
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+run '~/.tmux/plugins/tpm/tpm'
