@@ -23,7 +23,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'Yggdroot/indentLine'
 Plugin 'nvie/vim-flake8'
 
-Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
 
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -39,8 +40,8 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'lervag/vimtex'
-
 Plugin 'phongvcao/vim-stardict'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
