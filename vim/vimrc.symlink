@@ -21,7 +21,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 Plugin 'Yggdroot/indentLine'
-Plugin 'nvie/vim-flake8'
+"Plugin 'nvie/vim-flake8'
 
 "Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
@@ -222,11 +222,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " indentLine
 let g:indentLine_color_term = 239 
 
-" flake8
-" let g:flake8_show_in_file = 1
-" let g:flake8_show_in_gutter = 1
-let g:syntastic_python_flake8_args='--ignore=E501,E225'
-" autocmd! BufRead,BufWritePost *.py call Flake8()
+"" flake8
+"let g:flake8_show_in_file = 1
+"let g:flake8_show_in_gutter = 1
+"let g:syntastic_python_flake8_args='--ignore=E501,E225'
+"autocmd! BufRead,BufWritePost *.py call Flake8()
 
 " Syntastic ------------------------------
 "
