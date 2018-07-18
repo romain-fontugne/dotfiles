@@ -25,6 +25,8 @@ Plugin 'nvie/vim-flake8'
 
 "Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
+"Plugin 'tpope/vim-obsession'
+Plugin 'machakann/vim-highlightedyank'
 
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -338,3 +340,7 @@ set complete+=kspell
 " mkdir -p ~/.vim/ftplugin
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
 "" set nofoldenable
+
+if has('nvim')
+    set inccommand=nosplit
+endif
