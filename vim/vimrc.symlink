@@ -44,6 +44,7 @@ Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'lervag/vimtex'
 Plugin 'phongvcao/vim-stardict'
 
+Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
