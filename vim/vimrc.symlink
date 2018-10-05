@@ -15,10 +15,12 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mhinz/vim-grepper'
 Plugin 'davidhalter/jedi-vim'
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'ervandew/supertab'
 
 Plugin 'Yggdroot/indentLine'
 "Plugin 'nvie/vim-flake8'
@@ -27,6 +29,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'jiangmiao/auto-pairs'
 "Plugin 'tpope/vim-obsession'
 Plugin 'machakann/vim-highlightedyank'
+Plugin 'kshenoy/vim-signature'
 
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -225,12 +228,22 @@ nnoremap <leader>d :StarDictCursor<CR>
 
 " UtilSnips ------------------------------
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<c-y>"
-let g:UltiSnipsExpandTrigger="<c-y>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+""let g:UltiSnipsExpandTrigger="<c-y>"
+"let g:UltiSnipsExpandTrigger="<c-h>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" if you use Vundle, load plugins:
 
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " indentLine
 let g:indentLine_color_term = 239 
 
