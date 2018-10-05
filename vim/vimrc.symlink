@@ -17,6 +17,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-grepper'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'ron89/thesaurus_query.vim'
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -43,10 +44,11 @@ Plugin 'sheerun/vim-wombat-scheme'
 "Plugin 'julienr/vim-cellmode'
 Plugin 'tpope/vim-fugitive'
 
-Plugin 'beloglazov/vim-online-thesaurus'
+"Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'lervag/vimtex'
 Plugin 'phongvcao/vim-stardict'
 
+Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -221,7 +223,8 @@ set hidden
 
 " Thesaurus -------------------------------
 let g:online_thesaurus_map_keys = 0
-nnoremap <leader>t :OnlineThesaurusCurrentWord<CR>
+"nnoremap <leader>t :OnlineThesaurusCurrentWord<CR>
+nnoremap <leader>t :ThesaurusQueryReplaceCurrentWord<CR>
 
 " Stardict  -------------------------------
 nnoremap <leader>d :StarDictCursor<CR>
