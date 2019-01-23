@@ -39,7 +39,7 @@ else
 fi
 
 echo "Compiling YCM"
-cd ~/.vim/bundle/YouCompleteMe; python2 install.py
+cd ~/.vim/bundle/YouCompleteMe; python install.py
 # cd ~/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer
 
 echo "If you want to use dictionaries in vim,"
