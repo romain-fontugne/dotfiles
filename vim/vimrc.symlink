@@ -38,6 +38,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'scrooloose/syntastic'
+Plugin 'neomake/neomake'
 
 Plugin 'sheerun/vim-wombat-scheme'
 
