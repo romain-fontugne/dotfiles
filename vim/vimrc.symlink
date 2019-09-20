@@ -4,67 +4,56 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mhinz/vim-grepper'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'ron89/thesaurus_query.vim'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/ctrlp.vim'
+Plug 'mhinz/vim-grepper'
+Plug 'ron89/thesaurus_query.vim'
+Plug 'ervandew/supertab'
 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'ervandew/supertab'
+"Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
-Plugin 'Yggdroot/indentLine'
+
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
+
+Plug 'Yggdroot/indentLine'
 "Plugin 'nvie/vim-flake8'
 
 "Plugin 'tpope/vim-surround'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 "Plugin 'tpope/vim-obsession'
-Plugin 'machakann/vim-highlightedyank'
-Plugin 'kshenoy/vim-signature'
+Plug 'machakann/vim-highlightedyank'
+Plug 'kshenoy/vim-signature'
 
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 
-Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'majutsushi/tagbar'
+"Plugin 'Valloric/YouCompleteMe'
 "Plugin 'scrooloose/syntastic'
-Plugin 'neomake/neomake'
+Plug 'neomake/neomake'
 
-Plugin 'sheerun/vim-wombat-scheme'
+Plug 'sheerun/vim-wombat-scheme'
 
 "Plugin 'julienr/vim-cellmode'
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 "Plugin 'beloglazov/vim-online-thesaurus'
-Plugin 'lervag/vimtex'
-Plugin 'phongvcao/vim-stardict'
+Plug 'lervag/vimtex'
+Plug 'phongvcao/vim-stardict'
 
-Plugin 'posva/vim-vue'
+Plug 'posva/vim-vue'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Initialize plugin system
+call plug#end()
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -336,10 +325,12 @@ set wildignore+=*/coverage/*
 " Settings for jedi-vim
 " cd ~/.vim/bundle
 " git clone git://github.com/davidhalter/jedi-vim.git
-let g:jedi#usages_command = "<leader>z"
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+"let g:jedi#usages_command = "<leader>z"
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#popup_select_first = 0
+"map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+"python.jediEnabled": false
 
 " Better navigating through omnicomplete option list
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
@@ -377,4 +368,7 @@ call neomake#configure#automake('nrwi', 500)
 
 if has('nvim')
     set inccommand=nosplit
+    let g:python3_host_prog="/usr/bin/python3"
+    let g:loaded_python_provider=1
+
 endif
