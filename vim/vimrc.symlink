@@ -15,10 +15,10 @@ Plug 'kien/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ervandew/supertab'
+Plug 'cj/vim-webdevicons' 
 
 "Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-
 
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'SirVer/ultisnips'
@@ -39,7 +39,6 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'majutsushi/tagbar'
 "Plugin 'Valloric/YouCompleteMe'
-"Plugin 'scrooloose/syntastic'
 "Plug 'neomake/neomake'
 
 Plug 'sheerun/vim-wombat-scheme'
@@ -56,6 +55,11 @@ Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
 
 " Initialize plugin system
 call plug#end()
+
+"" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -242,24 +246,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " indentLine
 let g:indentLine_color_term = 239 
 
-"" flake8
-"let g:flake8_show_in_file = 1
-"let g:flake8_show_in_gutter = 1
-"let g:syntastic_python_flake8_args='--ignore=E501,E225'
-"autocmd! BufRead,BufWritePost *.py call Flake8()
-
-" Syntastic ------------------------------
-"
-" " show list of errors and warnings on the current file
-nmap <leader>e :Errors<CR>
-" " check also when just opened the file
-let g:syntastic_check_on_open = 1
-" " don't put icons on the sign column (it hides the vcs status icons of
-" signify)
-let g:syntastic_enable_signs = 0
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_echo_current_error = 0
-
 "
 " Tagbar -----------------------------
 
@@ -279,7 +265,6 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
 " Airline ------------------------------
 
-let g:airline_powerline_fonts = 1
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
@@ -287,17 +272,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " vimtex ---------------------------------
 let g:vimtex_fold_enabled = 0
-
-
-" ============================================================================
-" Python IDE Setup
-" ============================================================================
-
-
-" Settings for vim-powerline
-" cd ~/.vim/bundle
-" git clone git://github.com/Lokaltog/vim-powerline.git
-set laststatus=2
 
 
 " Settings for ctrlp
@@ -341,15 +315,11 @@ let g:tex_conceal = ""
 autocmd BufRead,BufNewFile *.tex setlocal spell
 set complete+=kspell
 
-" Python folding
-" mkdir -p ~/.vim/ftplugin
-" wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
-"" set nofoldenable
+" No conceal on cursor line
+set concealcursor=nc
 
-" Neomake "
-" Full config: when writing or reading a buffer, and on changes in insert and
-" normal mode (after 1s; no delay when writing).
-"call neomake#configure#automake('nrwi', 500)
+" source $HOME/.dotfiles/vim/statusline.vim
+
 
 if has('nvim')
     set inccommand=nosplit

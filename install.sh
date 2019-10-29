@@ -38,6 +38,7 @@ else
 fi
 
 echo "If you want to use dictionaries in vim,"
-echo "you should also instacl sdcv and stardict"
+echo "you should also install sdcv and stardict"
 echo "dictionaries. On archlinux do:"
 echo "sudo pacman sdcv stardict-oald stardict-wordnet"
+
