@@ -17,6 +17,10 @@ fi
 echo "Installing dotfiles"
 source ~/.dotfiles/install/link.sh
 
+echo "Installing patched fonts"
+mkdir -p ~/.local/share/fonts
+cp ~/.dotfiles/fonts/'Droid Sans Mono Nerd Font Complete Mono.otf' ~/.local/share/fonts/
+
 if [ -d /usr/share/konsole ]; then
     sudo cp ~/.dotfiles/konsole/Wombat.colorscheme /usr/share/konsole/
 fi

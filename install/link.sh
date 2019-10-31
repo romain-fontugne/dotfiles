@@ -11,4 +11,7 @@ for file in $linkables ; do
 done
 
 mkdir $HOME/.config/matplotlib
-ln -s $DOTFILES/config/matplotlib/matplotlibrc.symlink $HOME/.config/matplotlib/matplotlibrc
+ln -s $DOTFILES/config/matplotlib/matplotlibrc $HOME/.config/matplotlib/matplotlibrc
+
+mkdir $HOME/.config/kitty
+ln -s $DOTFILES/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
