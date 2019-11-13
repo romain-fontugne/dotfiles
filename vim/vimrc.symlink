@@ -10,7 +10,9 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'tomasiser/vim-code-dark'
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'kien/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'ron89/thesaurus_query.vim'
@@ -149,13 +151,23 @@ vnoremap <Leader>s :sort<CR>
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
+" Airline ------------------------------
+
+let g:airline_theme = 'codedark'
+let g:airline#extensions#whitespace#enabled = 0
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_powerline_fonts = 1
+
 
 " Color scheme
-" mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
+set termguicolors     " enable true colors support
 set t_Co=256
-"" color wombat256mod
-colorscheme wombat
+"colorscheme abstract
+" color wombat256mod
+"colorscheme wombat
+"colorscheme angr
+colorscheme codedark
 
 if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
@@ -256,6 +268,7 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " indentLine
 let g:indentLine_color_term = 239 
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 "
 " Tagbar -----------------------------
@@ -273,13 +286,6 @@ map <F3> :NERDTreeToggle<CR>
 "nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-
-" Airline ------------------------------
-
-let g:airline_theme = 'bubblegum'
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " vimtex ---------------------------------
 let g:vimtex_fold_enabled = 0
@@ -327,9 +333,9 @@ autocmd BufRead,BufNewFile *.tex setlocal spell
 set complete+=kspell
 
 " No conceal on cursor line
-set concealcursor=nc
+set concealcursor = "nc"
 
-" source $HOME/.dotfiles/vim/statusline.vim
+"source $HOME/.dotfiles/vim/statusline.vim
 
 " Markdown highlighting
 " disable header folding
@@ -347,6 +353,8 @@ let g:vim_markdown_frontmatter = 1  " for YAML format
 let g:vim_markdown_toml_frontmatter = 1  " for TOML format
 let g:vim_markdown_json_frontmatter = 1  " for JSON format
 
+" escape from nvim terminal with ESC
+:tnoremap <Esc> <C-\><C-n>
 
 if has('nvim')
     set inccommand=nosplit
