@@ -328,7 +328,7 @@ autocmd BufRead,BufNewFile *.tex setlocal spell
 set complete+=kspell
 
 " No conceal on cursor line
-set concealcursor=nc
+set concealcursor = "nc"
 
 " source $HOME/.dotfiles/vim/statusline.vim
 
