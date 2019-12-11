@@ -29,7 +29,7 @@ Plug 'hkupty/iron.nvim'
 
 Plug 'Yggdroot/indentLine'
 
-"Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 "Plugin 'jiangmiao/auto-pairs'
 Plug 'tmsvg/pear-tree'
 "Plugin 'tpope/vim-obsession'
