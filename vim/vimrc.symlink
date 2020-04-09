@@ -59,12 +59,14 @@ Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
 " tabular plugin is used to format tables
 Plug 'godlygeek/tabular'
 " JSON front matter highlight plugin
-Plug 'elzr/vim-json'
-Plug 'plasticboy/vim-markdown'
+"Plug 'elzr/vim-json'
+"Plug 'plasticboy/vim-markdown'
 
 " If you don't have nodejs and yarn
 " use pre build
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+Plug 'vimwiki/vimwiki'
 
 " Initialize plugin system
 call plug#end()
@@ -136,9 +138,11 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 
-" easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+" insert 'now' date
+nmap <Leader>m i<C-R>=strftime("%Y-%m-%d %a")<CR><Esc>
+imap <Leader>m <C-R>=strftime("%Y-%m-%d %a")<CR>
+nmap <Leader>n i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <Leader>n <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 
 " map sort function to a key
@@ -407,29 +411,35 @@ let g:tex_conceal = ""
 autocmd BufRead,BufNewFile *.tex setlocal spell
 set complete+=kspell
 
-" No conceal on cursor line
-set concealcursor = "nc"
-
 "source $HOME/.dotfiles/vim/statusline.vim
 
 " Markdown highlighting
 " disable header folding
-let g:vim_markdown_folding_disabled = 1
+"let g:vim_markdown_folding_disabled = 1
 
 " do not use conceal feature, the implementation is not so good
-let g:vim_markdown_conceal = 0
+"let g:vim_markdown_conceal = 1
 
 " disable math tex conceal feature
-let g:tex_conceal = ""
-let g:vim_markdown_math = 1
+"let g:tex_conceal = ""
+"let g:vim_markdown_math = 1
 
 " support front matter of various format
-let g:vim_markdown_frontmatter = 1  " for YAML format
-let g:vim_markdown_toml_frontmatter = 1  " for TOML format
-let g:vim_markdown_json_frontmatter = 1  " for JSON format
+"let g:vim_markdown_frontmatter = 1  " for YAML format
+"let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+"let g:vim_markdown_json_frontmatter = 1  " for JSON format
+
+let g:vimwiki_list = [{'path': '~/Documents/notes/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 
 " escape from nvim terminal with ESC
 :tnoremap <Esc> <C-\><C-n>
+
+" No conceal on cursor line
+let g:indentLine_setConceal = 0
+set concealcursor = "nc"
+
 
 if has('nvim')
     set inccommand=nosplit
