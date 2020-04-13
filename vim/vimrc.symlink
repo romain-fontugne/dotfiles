@@ -54,17 +54,19 @@ Plug 'lervag/vimtex'
 Plug 'phongvcao/vim-stardict'
 
 Plug 'posva/vim-vue'
-Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
+"Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
 
 " tabular plugin is used to format tables
 Plug 'godlygeek/tabular'
 " JSON front matter highlight plugin
-Plug 'elzr/vim-json'
+"Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 
 " If you don't have nodejs and yarn
 " use pre build
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+Plug 'vimwiki/vimwiki'
 
 " Initialize plugin system
 call plug#end()
@@ -135,10 +137,14 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+" shotcut for fugitive
+map <c-g> :Gstatus<CR>
 
-" easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+" insert 'now' date
+nmap <Leader>m i<C-R>=strftime("%Y-%m-%d %a")<CR><Esc>
+imap <Leader>m <C-R>=strftime("%Y-%m-%d %a")<CR>
+nmap <Leader>n i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <Leader>n <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 
 " map sort function to a key
@@ -296,8 +302,14 @@ let g:vimtex_fold_enabled = 0
 " git clone https://github.com/kien/ctrlp.vim.git
 let g:ctrlp_max_height = 30
 set wildignore+=*.pyc
+set wildignore+=*.pdf
+set wildignore+=*.png
+set wildignore+=*.jpeg
+set wildignore+=*.jpg
 set wildignore+=*_build/*
 set wildignore+=*/coverage/*
+set wildignore+=*/data/*
+set wildignore+=*/cache/*
 
 
 " Coc config
@@ -317,8 +329,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -407,9 +419,6 @@ let g:tex_conceal = ""
 autocmd BufRead,BufNewFile *.tex setlocal spell
 set complete+=kspell
 
-" No conceal on cursor line
-set concealcursor = "nc"
-
 "source $HOME/.dotfiles/vim/statusline.vim
 
 " Markdown highlighting
@@ -417,19 +426,28 @@ set concealcursor = "nc"
 let g:vim_markdown_folding_disabled = 1
 
 " do not use conceal feature, the implementation is not so good
-let g:vim_markdown_conceal = 0
+"let g:vim_markdown_conceal = 1
 
 " disable math tex conceal feature
-let g:tex_conceal = ""
-let g:vim_markdown_math = 1
+"let g:tex_conceal = ""
+"let g:vim_markdown_math = 1
 
 " support front matter of various format
-let g:vim_markdown_frontmatter = 1  " for YAML format
-let g:vim_markdown_toml_frontmatter = 1  " for TOML format
-let g:vim_markdown_json_frontmatter = 1  " for JSON format
+"let g:vim_markdown_frontmatter = 1  " for YAML format
+"let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+"let g:vim_markdown_json_frontmatter = 1  " for JSON format
+
+let g:vimwiki_list = [{'path': '~/Documents/notes/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 
 " escape from nvim terminal with ESC
 :tnoremap <Esc> <C-\><C-n>
+
+" No conceal on cursor line
+let g:indentLine_setConceal = 0
+set concealcursor = "nc"
+
 
 if has('nvim')
     set inccommand=nosplit
