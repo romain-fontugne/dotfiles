@@ -19,8 +19,8 @@ Plug 'ron89/thesaurus_query.vim'
 Plug 'ervandew/supertab'
 Plug 'cj/vim-webdevicons' 
 
-"Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'hkupty/iron.nvim'
 "Plugin 'davidhalter/jedi-vim'
