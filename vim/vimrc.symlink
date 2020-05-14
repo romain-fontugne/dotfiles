@@ -80,19 +80,7 @@ set fileencodings=utf-8
 " When you want to paste large blocks of code into vim, press F2 before you
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
 set pastetoggle=<F2>
-"set clipboard=unnamed
-"
-" " Copy to clipboard
-vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
-nnoremap  <leader>yy  "+yy
-
-" " Paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
+set clipboard+=unnamedplus
 
 " Mouse and backspace
 set mouse=a  " on OSX press ALT and click
@@ -157,14 +145,6 @@ vnoremap <Leader>s :sort<CR>
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
-" Airline ------------------------------
-
-let g:airline_theme = 'codedark'
-let g:airline#extensions#whitespace#enabled = 0
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_powerline_fonts = 1
-
 
 " Color scheme
 set termguicolors     " enable true colors support
@@ -174,6 +154,51 @@ set t_Co=256
 "colorscheme wombat
 "colorscheme angr
 colorscheme codedark
+set bg=dark
+
+"Different colorscheme for latex
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.light': {
+  \       'override' : {
+  \         'color00' : ['#FFFFFF', '232'],
+  \         'linenumber_bg' : ['#FFFFFF', '232'],
+  \         'cursorline' : ['#F9F9F9', '232'],
+  \       }
+  \     }
+  \   }
+  \ }
+
+
+let s:saved_colorscheme = g:colors_name
+function! s:check_colorscheme_on_bufenter() abort
+    if &ft == 'tex' && g:colors_name != 'PaperColor'
+        let s:saved_colorscheme = g:colors_name
+        colorscheme PaperColor
+        set bg=light
+    elseif &ft != 'tex' && g:colors_name == 'PaperColor' && &ft != 'nerdtree' && &ft != 'tagbar'
+        exe 'colorscheme '.s:saved_colorscheme
+        let g:airline_theme = 'codedark'
+        set bg=dark
+    endif
+endfunction
+
+augroup TexColorScheme
+    au!
+    au BufEnter * call s:check_colorscheme_on_bufenter()
+augroup END
+
+
+" Airline ------------------------------
+
+"let g:airline_theme = 'codedark'
+"let g:airline_theme='PaperColor'
+let g:airline#extensions#whitespace#enabled = 0
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_powerline_fonts = 1
+
+
 
 if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
