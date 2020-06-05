@@ -1,7 +1,7 @@
 [user]
 	email = romain.fontugne@gmail.com
 	name = romain.fontugne
-[url "https://github.com/"]
-	insteadOf = git://github.com/
+
 [include]
     path = ~/.dotfiles/git/proxy
+

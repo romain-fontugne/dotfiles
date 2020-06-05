@@ -10,7 +10,7 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasiser/vim-code-dark'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'kien/ctrlp.vim'
@@ -153,8 +153,14 @@ set t_Co=256
 " color wombat256mod
 "colorscheme wombat
 "colorscheme angr
-colorscheme codedark
-set bg=dark
+
+"colorscheme codedark
+"set bg=dark
+"let g:airline_theme = 'codedark'
+
+colorscheme PaperColor
+let g:airline_theme='papercolor'
+set bg=light
 
 "Different colorscheme for latex
 let g:PaperColor_Theme_Options = {
@@ -164,34 +170,35 @@ let g:PaperColor_Theme_Options = {
   \         'color00' : ['#FFFFFF', '232'],
   \         'linenumber_bg' : ['#FFFFFF', '232'],
   \         'cursorline' : ['#F9F9F9', '232'],
+  \         'cursorcolumn': ['#F9F9F9', '232']
   \       }
   \     }
   \   }
   \ }
 
 
-let s:saved_colorscheme = g:colors_name
-function! s:check_colorscheme_on_bufenter() abort
-    if &ft == 'tex' && g:colors_name != 'PaperColor'
-        let s:saved_colorscheme = g:colors_name
-        colorscheme PaperColor
-        set bg=light
-    elseif &ft != 'tex' && g:colors_name == 'PaperColor' && &ft != 'nerdtree' && &ft != 'tagbar'
-        exe 'colorscheme '.s:saved_colorscheme
-        let g:airline_theme = 'codedark'
-        set bg=dark
-    endif
-endfunction
+"let s:saved_colorscheme = g:colors_name
+"function! s:check_colorscheme_on_bufenter() abort
+    "if &ft == 'tex' && g:colors_name != 'PaperColor'
+        "let s:saved_colorscheme = g:colors_name
+        "set bg=light
+        "colorscheme PaperColor
+        "let g:airline_theme='papercolor'
+    "elseif &ft != 'tex' && g:colors_name == 'PaperColor' && &ft != 'nerdtree' && &ft != 'tagbar'
+        "exe 'colorscheme '.s:saved_colorscheme
+        "let g:airline_theme = 'codedark'
+        "set bg=dark
+    "endif
+"endfunction
 
-augroup TexColorScheme
-    au!
-    au BufEnter * call s:check_colorscheme_on_bufenter()
-augroup END
+"augroup TexColorScheme
+    "au!
+    "au VimEnter * call s:check_colorscheme_on_bufenter()
+"augroup END
 
 
 " Airline ------------------------------
 
-"let g:airline_theme = 'codedark'
 "let g:airline_theme='PaperColor'
 let g:airline#extensions#whitespace#enabled = 0
 "let g:airline#extensions#tabline#enabled = 1
@@ -221,7 +228,6 @@ set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
-highlight ColorColumn ctermbg=233
 
 
 " easier formatting of paragraphs
