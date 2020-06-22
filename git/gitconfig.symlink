@@ -5,3 +5,5 @@
 [include]
     path = ~/.dotfiles/git/proxy
 
+[pull]
+	rebase = false
