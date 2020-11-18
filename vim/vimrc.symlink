@@ -480,6 +480,7 @@ let g:vimwiki_list = [{'path': '~/Documents/notes/',
 let g:indentLine_setConceal = 0
 set concealcursor = "nc"
 
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 if has('nvim')
     set inccommand=nosplit
