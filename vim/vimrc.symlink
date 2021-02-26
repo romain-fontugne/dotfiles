@@ -68,6 +68,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 Plug 'vimwiki/vimwiki'
 
+Plug 'puremourning/vimspector'
+
 " Initialize plugin system
 call plug#end()
 
@@ -422,7 +424,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:coc_global_extensions = [
       \'coc-markdownlint',
       \'coc-vetur',
-      \'coc-python',
+      \'coc-pyright',
       \'coc-json', 
       \'coc-snippets', 
       \]
@@ -472,6 +474,8 @@ let g:vim_markdown_folding_disabled = 1
 let g:vimwiki_list = [{'path': '~/Documents/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
+" Vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
 
 " escape from nvim terminal with ESC
 :tnoremap <Esc> <C-\><C-n>
