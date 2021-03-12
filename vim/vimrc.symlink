@@ -36,9 +36,9 @@ Plug 'tmsvg/pear-tree'
 Plug 'machakann/vim-highlightedyank'
 Plug 'kshenoy/vim-signature'
 
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'majutsushi/tagbar'
 "Plugin 'Valloric/YouCompleteMe'
@@ -158,11 +158,12 @@ set t_Co=256
 
 "colorscheme codedark
 "set bg=dark
-"let g:airline_theme = 'codedark'
+let g:airline_theme = 'codedark'
 
 colorscheme PaperColor
-let g:airline_theme='papercolor'
-set bg=light
+"let g:airline_theme='papercolor'
+"set bg=light
+set bg=dark
 
 "Different colorscheme for latex
 let g:PaperColor_Theme_Options = {
@@ -206,6 +207,8 @@ let g:airline#extensions#whitespace#enabled = 0
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
+let g:airline_section_x = ''
+let g:airline_section_y = ''
 
 
 
@@ -427,6 +430,7 @@ let g:coc_global_extensions = [
       \'coc-pyright',
       \'coc-json', 
       \'coc-snippets', 
+      \'coc-explorer', 
       \]
 
 " Better navigating through omnicomplete option list
@@ -475,7 +479,7 @@ let g:vimwiki_list = [{'path': '~/Documents/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " Vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 
 " escape from nvim terminal with ESC
 :tnoremap <Esc> <C-\><C-n>
@@ -491,6 +495,7 @@ if has('nvim')
     let g:python3_host_prog="/usr/bin/python3"
     let g:loaded_python_provider=1
 
-
+" coc-explorer
+:nnoremap <space>e :CocCommand explorer<CR>
 
 endif
