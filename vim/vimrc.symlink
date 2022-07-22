@@ -128,7 +128,7 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 " shotcut for fugitive
-map <c-g> :Gstatus<CR>
+map <c-g> :Git<CR>
 
 " insert 'now' date
 nmap <Leader>m i<C-R>=strftime("%Y-%m-%d %a")<CR><Esc>
