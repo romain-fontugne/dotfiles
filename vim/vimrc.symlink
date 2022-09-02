@@ -13,7 +13,7 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasiser/vim-code-dark'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ervandew/supertab'
@@ -70,8 +70,17 @@ Plug 'vimwiki/vimwiki'
 
 Plug 'puremourning/vimspector'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+Plug 'AckslD/nvim-neoclip.lua'
+Plug 'kkharji/sqlite.lua'
+
 " Initialize plugin system
 call plug#end()
+
+lua require('neoclip').setup()
+
 
 "" Encoding
 set encoding=utf-8
@@ -320,15 +329,6 @@ map <F4> :TagbarToggle<CR>
 " autofocus on tagbar open
 let g:tagbar_autofocus = 1
 
-" NERDTree -----------------------------
-
-" toggle nerdtree display
-map <F3> :NERDTreeToggle<CR>
-" open nerdtree with the current file selected
-"nmap ,t :NERDTreeFind<CR>
-" don;t show these file types
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-
 " vimtex ---------------------------------
 let g:vimtex_fold_enabled = 0
 let g:tex_flavor = 'latex'
@@ -354,7 +354,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
@@ -489,6 +489,13 @@ let g:indentLine_setConceal = 0
 set concealcursor = "nc"
 
 autocmd TermOpen * setlocal nonumber norelativenumber
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
 if has('nvim')
     set inccommand=nosplit
