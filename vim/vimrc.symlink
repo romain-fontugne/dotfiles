@@ -70,16 +70,19 @@ Plug 'vimwiki/vimwiki'
 
 Plug 'puremourning/vimspector'
 
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-Plug 'AckslD/nvim-neoclip.lua'
-Plug 'kkharji/sqlite.lua'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-media-files.nvim'
 
 " Initialize plugin system
 call plug#end()
 
-lua require('neoclip').setup()
+lua require('telescope').load_extension('media_files')
 
 
 "" Encoding
