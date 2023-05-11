@@ -17,4 +17,4 @@ mkdir $HOME/.config/kitty
 ln -s $DOTFILES/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
 
 mkdir $HOME/.config/nvim
-ln -s $DOTFILES/coc/coc-settings.conf $HOME/.config/coc/coc-settings.conf
+ln -s $DOTFILES/coc/coc-settings.json $HOME/.config/nvim/coc-settings.json
