@@ -1,0 +1,14 @@
+{
+    "languageserver": {
+        "digestif": {
+            "command": "digestif",
+            "filetypes": ["tex", "plaintex", "context"]
+        }
+    },
+    "python": {
+        "linting":{
+            "pycodestyleEnabled": true
+        }
+    }
+}
+

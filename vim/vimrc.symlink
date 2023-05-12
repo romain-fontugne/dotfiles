@@ -13,7 +13,6 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasiser/vim-code-dark'
 Plug 'rafi/awesome-vim-colorschemes'
-"Plug 'kien/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ervandew/supertab'
@@ -24,7 +23,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'hkupty/iron.nvim'
 "Plugin 'davidhalter/jedi-vim'
-"Plugin 'SirVer/ultisnips'
 "Plugin 'honza/vim-snippets'
 
 Plug 'Yggdroot/indentLine'
@@ -63,8 +61,9 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 " If you don't have nodejs and yarn
-" use pre build
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'mattf1n/vimmarp'
 
@@ -313,24 +312,6 @@ nnoremap <leader>t :ThesaurusQueryReplaceCurrentWord<CR>
 " Stardict  -------------------------------
 nnoremap <leader>d :StarDictCursor<CR>
 
-" UtilSnips ------------------------------
-
-"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-""let g:UltiSnipsExpandTrigger="<c-y>"
-"let g:UltiSnipsExpandTrigger="<c-h>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" if you use Vundle, load plugins:
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " indentLine
 let g:indentLine_color_term = 239 
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
@@ -346,21 +327,6 @@ let g:tagbar_autofocus = 1
 " vimtex ---------------------------------
 let g:vimtex_fold_enabled = 0
 let g:tex_flavor = 'latex'
-
-" Settings for ctrlp
-" cd ~/.vim/bundle
-" git clone https://github.com/kien/ctrlp.vim.git
-let g:ctrlp_max_height = 30
-set wildignore+=*.pyc
-set wildignore+=*.pdf
-set wildignore+=*.png
-set wildignore+=*.jpeg
-set wildignore+=*.jpg
-set wildignore+=*_build/*
-set wildignore+=*/coverage/*
-set wildignore+=*/data/*
-set wildignore+=*/cache/*
-
 
 " Coc config
 " Use <c-space> to trigger completion.
