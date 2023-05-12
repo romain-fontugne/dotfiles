@@ -39,5 +39,11 @@ echo "If you want to use dictionaries in vim,"
 echo "you should also install sdcv and stardict"
 echo "dictionaries. On archlinux do:"
 echo "sudo pacman sdcv stardict-oald stardict-wordnet"
-sudo pacman -Syy autogen8
 
+
+echo "Installing autopep8 and pycodestyle configuration"
+
+echo "[pycodestyle]
+max_line_length = 120" >> ~/.config/pycodestyle
+
+sudo pacman -Syy autopep8
