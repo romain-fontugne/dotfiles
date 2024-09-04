@@ -11,12 +11,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tomasiser/vim-code-dark'
-Plug 'rafi/awesome-vim-colorschemes'
+Plug 'rebelot/kanagawa.nvim'
 Plug 'mhinz/vim-grepper'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ervandew/supertab'
-Plug 'cj/vim-webdevicons' 
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
@@ -58,20 +56,19 @@ Plug 'posva/vim-vue'
 Plug 'godlygeek/tabular'
 " JSON front matter highlight plugin
 "Plug 'elzr/vim-json'
-Plug 'plasticboy/vim-markdown'
 
 " If you don't have nodejs and yarn
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'mattf1n/vimmarp'
 
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 
 Plug 'puremourning/vimspector'
 
-Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -79,19 +76,72 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
-Plug 'ahmedkhalf/project.nvim'
+" Plug 'ahmedkhalf/project.nvim'
+
+Plug 'echasnovski/mini.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 " Initialize plugin system
 call plug#end()
 
 lua require('telescope').load_extension('media_files')
 
+" lua << EOF
+"   require("project_nvim").setup {
+"   }
+" EOF
+
 lua << EOF
-  require("project_nvim").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
+require'nvim-web-devicons'.setup {} 
+
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+  ensure_installed = { "python", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = true,
+
+  -- List of parsers to ignore installing (or "all")
+  ignore_install = { "javascript" },
+
+  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+
+  highlight = {
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    disable = { "c", "rust" },
+    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+    disable = function(lang, buf)
+        local max_filesize = 100 * 1024 -- 100 KB
+        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats and stats.size > max_filesize then
+            return true
+        end
+    end,
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+require('render-markdown').setup({
+        enabled = true,
+        latex = { enabled = false } ,
+        preset = 'obsidian',
+})
+require('render-markdown').enable()
 EOF
 
 
@@ -117,7 +167,7 @@ set bs=2     " make backspace behave like normal again
 let mapleader = ","
 
 " Speed up redraws
-set lazyredraw
+" set lazyredraw
 
 " Bind nohl
 " Removes highlight of your last search
@@ -173,34 +223,15 @@ vnoremap > >gv  " better indentation
 " Color scheme
 set termguicolors     " enable true colors support
 set t_Co=256
-"colorscheme abstract
-" color wombat256mod
-"colorscheme wombat
-"colorscheme angr
+colorscheme kanagawa
+" colorscheme kanagawa-dragon
+let g:airline_theme = 'angr'
 
-"colorscheme codedark
-"set bg=dark
-let g:airline_theme = 'codedark'
-
-colorscheme PaperColor
 "let g:airline_theme='papercolor'
 "set bg=light
 set bg=dark
 
 "Different colorscheme for latex
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.light': {
-  \       'override' : {
-  \         'color00' : ['#FFFFFF', '232'],
-  \         'linenumber_bg' : ['#FFFFFF', '232'],
-  \         'cursorline' : ['#F9F9F9', '232'],
-  \         'cursorcolumn': ['#F9F9F9', '232']
-  \       }
-  \     }
-  \   }
-  \ }
-
 
 "let s:saved_colorscheme = g:colors_name
 "function! s:check_colorscheme_on_bufenter() abort
@@ -405,7 +436,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 let g:coc_global_extensions = [
-      \'coc-markdownlint',
       \'@yaegassy/coc-volar',
       \'coc-pyright',
       \'coc-json', 
@@ -439,24 +469,10 @@ set complete+=kspell
 
 "source $HOME/.dotfiles/vim/statusline.vim
 
-" Markdown highlighting
-" disable header folding
-let g:vim_markdown_folding_disabled = 1
-
-" do not use conceal feature, the implementation is not so good
-"let g:vim_markdown_conceal = 1
-
-" disable math tex conceal feature
-"let g:tex_conceal = ""
-"let g:vim_markdown_math = 1
-
-" support front matter of various format
-"let g:vim_markdown_frontmatter = 1  " for YAML format
-"let g:vim_markdown_toml_frontmatter = 1  " for TOML format
-"let g:vim_markdown_json_frontmatter = 1  " for JSON format
-
 let g:vimwiki_list = [{'path': '~/Documents/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+let g:vimwiki_global_ext = 0
 
 " Vimspector
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
@@ -465,8 +481,8 @@ let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 :tnoremap <Esc> <C-\><C-n>
 
 " No conceal on cursor line
-let g:indentLine_setConceal = 0
-set concealcursor = "nc"
+" let g:indentLine_setConceal = 0
+" set concealcursor = "nc"
 
 autocmd TermOpen * setlocal nonumber norelativenumber
 
