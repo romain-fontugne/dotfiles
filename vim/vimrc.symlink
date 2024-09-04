@@ -64,7 +64,7 @@ Plug 'godlygeek/tabular'
 
 Plug 'mattf1n/vimmarp'
 
-" Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 
 Plug 'puremourning/vimspector'
 
