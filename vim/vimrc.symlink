@@ -481,8 +481,8 @@ let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 :tnoremap <Esc> <C-\><C-n>
 
 " No conceal on cursor line
-" let g:indentLine_setConceal = 0
-" set concealcursor = "nc"
+let g:indentLine_setConceal = 0
+set concealcursor = "nc"
 
 autocmd TermOpen * setlocal nonumber norelativenumber
 

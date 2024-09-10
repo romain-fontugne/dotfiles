@@ -9,6 +9,7 @@
         "linting":{
             "pycodestyleEnabled": true
         }
-    }
+    },
+    "inlayHint.enable": false
 }
 
