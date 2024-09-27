@@ -359,6 +359,9 @@ let g:tagbar_autofocus = 1
 let g:vimtex_fold_enabled = 0
 let g:tex_flavor = 'latex'
 
+" coc ltex
+let g:coc_filetype_map = {'tex': 'latex'}
+
 " Coc config
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()

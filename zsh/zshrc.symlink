@@ -9,7 +9,9 @@ ttyctl -f
 
 if [ -f ~/.dotfiles/zsh/proxy ]; then
     source ~/.dotfiles/zsh/proxy
+    export {HTTP,HTTPS,FTP,RSYNC,DNS,ALL}_PROXY=$http_proxy
 fi
+
 
 source ~/.antigen/antigen.zsh
 
