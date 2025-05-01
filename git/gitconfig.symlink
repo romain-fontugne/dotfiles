@@ -7,3 +7,9 @@
 
 [pull]
 	rebase = false
+[safe]
+	directory = /mnt/data/romain/Projects/ihr/internet-yellow-pages
+	directory = /mnt/data/romain/Projects/perso/apnic-ixp-analysis
+	directory = /mnt/data/romain/Projects
+	directory = /mnt/data/romain/Projects/iij/annual-report
+	directory = /mnt/data/romain/Projects/ihr/ihr-website

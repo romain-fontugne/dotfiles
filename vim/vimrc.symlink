@@ -14,7 +14,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'mhinz/vim-grepper'
 Plug 'ron89/thesaurus_query.vim'
-Plug 'ervandew/supertab'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
@@ -60,7 +59,7 @@ Plug 'godlygeek/tabular'
 " If you don't have nodejs and yarn
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'mattf1n/vimmarp'
 
@@ -151,9 +150,6 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 
 " Better copy & paste
-" When you want to paste large blocks of code into vim, press F2 before you
-" paste. At the bottom you should see ``-- INSERT (paste) --``.
-set pastetoggle=<F2>
 set clipboard+=unnamedplus
 
 " Mouse and backspace

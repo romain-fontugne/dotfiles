@@ -10,6 +10,7 @@
             "pycodestyleEnabled": true
         }
     },
-    "inlayHint.enable": false
+    "inlayHint.enable": false,
+    "http.proxy": "http://proxy.iiji.jp:8080"
 }
 
