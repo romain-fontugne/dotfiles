@@ -25,7 +25,7 @@ export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-# antigen bundle git
+antigen bundle git
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
