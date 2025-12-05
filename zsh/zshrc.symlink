@@ -93,6 +93,7 @@ export CVS_RSH
 export CVSROOT=gandalf:/export1/Work/cvsroot/
 
 # User specific aliases and functions
+export GEM_HOME=$HOME/.local/share/gem/ruby/3.4.0/
 PATH=$PATH:/home/romain/bin:/home/romain/bin/MATLAB-R2013a/bin:/home/romain/.local/share/gem/ruby/3.4.0/bin:/home/romain/.gem/ruby/3.4.0/bin
 export PATH
 
