@@ -82,6 +82,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 Plug '3rd/image.nvim', { 'build' : 'false', 'opts':  { 'processor': 'magick_cli', } }
+Plug 'hakonharnes/img-clip.nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -204,6 +205,10 @@ noremap <C-q> :quit<CR>
 vnoremap <C-q> <C-C>:q<CR>
 inoremap <C-q> <C-O>:q<CR>
 
+" paste image
+noremap <C-p> <cmd>PasteImage<cr>
+vnoremap <C-p> <C-C><cmd>PasteImage<cr>
+inoremap <C-p> <C-O><cmd>PasteImage<cr>
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
@@ -518,3 +523,4 @@ if has('nvim')
 :nnoremap <space>e :CocCommand explorer<CR>
 
 endif
+
