@@ -1,4 +1,4 @@
-" ===========================================================================
+
 " Plugins
 " ===========================================================================
 set nocompatible              " be iMproved, required
@@ -71,7 +71,7 @@ Plug 'puremourning/vimspector'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+Plug 'nvim-telescope/telescope.nvim', { 'version': '*' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
@@ -86,8 +86,6 @@ Plug 'hakonharnes/img-clip.nvim'
 
 " Initialize plugin system
 call plug#end()
-
-lua require('telescope').load_extension('media_files')
 
 " lua << EOF
 "   require("project_nvim").setup {
@@ -160,6 +158,20 @@ require("image").setup({
   tmux_show_only_in_active_window = false, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
   hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
 })
+
+require'telescope'.setup {
+  extensions = {
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      filetypes = {"png", "webp", "jpg", "jpeg"},
+      -- find command (defaults to `fd`)
+      find_cmd = "rg"
+    }
+  },
+}
+require('telescope').load_extension('media_files')
+
 EOF
 
 "" Encoding
