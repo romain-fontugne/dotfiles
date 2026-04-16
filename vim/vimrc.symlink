@@ -1,35 +1,31 @@
-
 " Plugins
 " ===========================================================================
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'bling/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'mhinz/vim-grepper'
 Plug 'ron89/thesaurus_query.vim'
 
+Plug 'lukas-reineke/indent-blankline.nvim'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
-Plug 'hkupty/iron.nvim'
+" Plug 'hkupty/iron.nvim'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'honza/vim-snippets'
 
-Plug 'Yggdroot/indentLine'
-
 Plug 'tpope/vim-surround'
 "Plugin 'jiangmiao/auto-pairs'
-Plug 'tmsvg/pear-tree'
+" Plug 'tmsvg/pear-tree'
 "Plugin 'tpope/vim-obsession'
 Plug 'machakann/vim-highlightedyank'
-Plug 'kshenoy/vim-signature'
 
 "Plug 'scrooloose/nerdcommenter'
 "Plug 'scrooloose/nerdtree'
@@ -38,8 +34,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
 "Plugin 'Valloric/YouCompleteMe'
 "Plug 'neomake/neomake'
-
-Plug 'sheerun/vim-wombat-scheme'
 
 "Plugin 'julienr/vim-cellmode'
 Plug 'tpope/vim-fugitive'
@@ -59,15 +53,13 @@ Plug 'godlygeek/tabular'
 " If you don't have nodejs and yarn
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-Plug 'mattf1n/vimmarp'
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'vimwiki/vimwiki'
 
 Plug 'puremourning/vimspector'
 
-" Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -78,22 +70,87 @@ Plug 'nvim-telescope/telescope-media-files.nvim'
 " Plug 'ahmedkhalf/project.nvim'
 
 Plug 'echasnovski/mini.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
 Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 Plug '3rd/image.nvim', { 'build' : 'false', 'opts':  { 'processor': 'magick_cli', } }
 Plug 'hakonharnes/img-clip.nvim'
 
+Plug 'rcarriga/nvim-notify'
+Plug 'folke/noice.nvim'
+
+" Avante Deps
+Plug 'MunifTanjim/nui.nvim'
+
+" Optional deps
+Plug 'hrsh7th/nvim-cmp'
+"Plug 'zbirenbaum/copilot.lua'
+Plug 'ibhagwan/fzf-lua'
+Plug 'stevearc/dressing.nvim' " for enhanced input UI
+Plug 'folke/snacks.nvim' " for modern input UI
+
+" Yay, pass source=true if you want to build from source
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
+
 " Initialize plugin system
 call plug#end()
+
+
+autocmd! User avante.nvim
+lua << EOF
+require('avante').setup({
+    -- add any opts here
+    -- this file can contain specific instructions for your project
+    -- instructions_file = "avante.md",
+    -- for example
+    provider = 'gemini',
+    providers = {
+        gemini= {
+            model = 'gemini-2.5-flash-lite',
+        }
+    }
+})
+EOF
 
 " lua << EOF
 "   require("project_nvim").setup {
 "   }
 " EOF
-
+"
 lua << EOF
-require'nvim-web-devicons'.setup {} 
+require('nvim-web-devicons').setup({})
+require('noice').setup({})
+
+require('ibl').setup()
+
+require('lualine').setup({
+    options = {
+        theme = bubbles_theme,
+        component_separators = '',
+        section_separators = { left = '', right = '' },
+    },
+    sections = {
+        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+        lualine_b = { 'filename', 'branch' },
+        lualine_c = {
+        '%=', --[[ add your center components here in place of this comment ]]
+        },
+        lualine_x = {},
+        lualine_y = { 'filetype', 'progress' },
+        lualine_z = {
+        { 'location', separator = { right = '' }, left_padding = 2 },
+        },
+    },
+    inactive_sections = {
+        lualine_a = { 'filename' },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { 'location' },
+    },
+    tabline = {},
+  extensions = {},
+})
 
 require('render-markdown').setup({
         enabled = true,
@@ -172,7 +229,12 @@ require'telescope'.setup {
 }
 require('telescope').load_extension('media_files')
 
+require('cmp').setup({ })
+
+vim.opt.signcolumn = "no"
+
 EOF
+
 
 "" Encoding
 set encoding=utf-8
@@ -255,53 +317,11 @@ set termguicolors     " enable true colors support
 set t_Co=256
 colorscheme kanagawa
 " colorscheme kanagawa-dragon
-let g:airline_theme = 'angr'
+"
+highlight LineNr guibg=NONE
+highlight CursorLineNr guibg=NONE
 
-"let g:airline_theme='papercolor'
-"set bg=light
 set bg=dark
-
-"Different colorscheme for latex
-
-"let s:saved_colorscheme = g:colors_name
-"function! s:check_colorscheme_on_bufenter() abort
-    "if &ft == 'tex' && g:colors_name != 'PaperColor'
-        "let s:saved_colorscheme = g:colors_name
-        "set bg=light
-        "colorscheme PaperColor
-        "let g:airline_theme='papercolor'
-    "elseif &ft != 'tex' && g:colors_name == 'PaperColor' && &ft != 'nerdtree' && &ft != 'tagbar'
-        "exe 'colorscheme '.s:saved_colorscheme
-        "let g:airline_theme = 'codedark'
-        "set bg=dark
-    "endif
-"endfunction
-
-"augroup TexColorScheme
-    "au!
-    "au VimEnter * call s:check_colorscheme_on_bufenter()
-"augroup END
-
-
-" Airline ------------------------------
-
-"let g:airline_theme='PaperColor'
-let g:airline#extensions#whitespace#enabled = 0
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_powerline_fonts = 1
-let g:airline_section_x = ''
-let g:airline_section_y = ''
-
-
-
-if &term =~ '256color'
-  " disable Background Color Erase (BCE) so that color schemes
-  " render properly when inside 256-color tmux and GNU screen.
-  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
-endif
-
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -372,10 +392,6 @@ nnoremap <leader>t :ThesaurusQueryReplaceCurrentWord<CR>
 
 " Stardict  -------------------------------
 nnoremap <leader>d :StarDictCursor<CR>
-
-" indentLine
-let g:indentLine_color_term = 239 
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 "
 " Tagbar -----------------------------
