@@ -83,7 +83,7 @@ Plug 'MunifTanjim/nui.nvim'
 
 " Optional deps
 Plug 'hrsh7th/nvim-cmp'
-"Plug 'zbirenbaum/copilot.lua'
+Plug 'zbirenbaum/copilot.lua'
 Plug 'ibhagwan/fzf-lua'
 Plug 'stevearc/dressing.nvim' " for enhanced input UI
 Plug 'folke/snacks.nvim' " for modern input UI
@@ -97,13 +97,24 @@ call plug#end()
 
 autocmd! User avante.nvim
 lua << EOF
+require("copilot").setup({})
 require('avante').setup({
-    -- add any opts here
-    -- this file can contain specific instructions for your project
-    -- instructions_file = "avante.md",
-    -- for example
-    provider = 'gemini',
+    mode = "agentic",
+    behaviour = {
+        auto_approve_tool_permissions = false,
+    },
+    -- provider = 'gemini',
+    provider = 'copilot',
     providers = {
+        copilot = {
+            model = "claude-opus-4.6",
+            endpoint = "https://api.githubcopilot.com",
+            allow_insecure = false,
+            timeout = 10 * 60 * 1000,
+            temperature = 0,
+            max_completion_tokens = 1000000,
+            reasoning_effort = "high",
+        },
         gemini= {
             model = 'gemini-2.5-flash-lite',
         }
@@ -127,6 +138,10 @@ require('lualine').setup({
         theme = bubbles_theme,
         component_separators = '',
         section_separators = { left = '', right = '' },
+        disabled_filetypes = {
+            statusline = { 'Avante', 'AvanteInput' },
+            winbar = { 'Avante', 'AvanteInput' },
+        },
     },
     sections = {
         lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
@@ -149,13 +164,14 @@ require('lualine').setup({
         lualine_z = { 'location' },
     },
     tabline = {},
-  extensions = {},
+    extensions = {},
 })
 
 require('render-markdown').setup({
         enabled = true,
         latex = { enabled = false } ,
         preset = 'obsidian',
+        file_types = { "markdown", "Avante" },
 })
 require('render-markdown').enable()
 

@@ -12,7 +12,7 @@ if [ -f ~/.dotfiles/zsh/proxy ]; then
     export {HTTP,HTTPS,FTP,RSYNC,DNS,ALL}_PROXY=$http_proxy
 fi
 
-
+source ~/.dotfiles/zsh/env
 source ~/.antigen/antigen.zsh
 
 export GTK_IM_MODULE=ibus
