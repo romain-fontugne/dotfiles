@@ -107,11 +107,11 @@ require('avante').setup({
     provider = 'copilot',
     providers = {
         copilot = {
-            model = "claude-opus-4.6",
+            -- model = "claude-opus-4.6",
+            model = "gpt-5-mini",
             endpoint = "https://api.githubcopilot.com",
             allow_insecure = false,
             timeout = 10 * 60 * 1000,
-            temperature = 0,
             max_completion_tokens = 1000000,
             reasoning_effort = "high",
         },
@@ -245,7 +245,7 @@ require'telescope'.setup {
 }
 require('telescope').load_extension('media_files')
 
-require('cmp').setup({ })
+require('cmp').setup({})
 
 vim.opt.signcolumn = "no"
 
@@ -271,7 +271,13 @@ set bs=2     " make backspace behave like normal again
 let mapleader = ","
 
 " Speed up redraws
-" set lazyredraw
+set lazyredraw
+
+" paste image
+noremap <M-c> <cmd>Copilot suggestion toggle_auto_trigger<cr>
+vnoremap <M-c> <cmd>Copilot suggestion toggle_auto_trigger<cr>
+inoremap <M-c> <cmd>Copilot suggestion toggle_auto_trigger<cr>
+
 
 " Bind nohl
 " Removes highlight of your last search
