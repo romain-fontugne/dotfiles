@@ -103,12 +103,11 @@ require('avante').setup({
     behaviour = {
         auto_approve_tool_permissions = false,
     },
-    -- provider = 'gemini',
-    provider = 'copilot',
+    provider = 'claude',
     providers = {
         copilot = {
-            -- model = "claude-opus-4.6",
-            model = "gpt-5-mini",
+            model = "claude-sonnet-4.5",
+            -- model = "gpt-5-mini",
             endpoint = "https://api.githubcopilot.com",
             allow_insecure = false,
             timeout = 10 * 60 * 1000,
@@ -117,7 +116,10 @@ require('avante').setup({
         },
         gemini= {
             model = 'gemini-2.5-flash-lite',
-        }
+        },
+        claude = {
+            auth_type = "team",
+        },
     }
 })
 EOF
