@@ -105,6 +105,7 @@ require('avante').setup({
     },
     provider = 'claude',
     providers = {
+<<<<<<< HEAD
          claude = {
             auth_type = "max",
             model = "claude-sonnet-5",
