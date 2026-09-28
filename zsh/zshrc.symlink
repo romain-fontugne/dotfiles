@@ -3,12 +3,16 @@ alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
 alias v="nvim"
 
-# Disable <Ctrl-q> <Ctrl-s> 
+# Disable <Ctrl-q> <Ctrl-s>
 stty -ixon
 ttyctl -f
 
 if [ -f ~/.dotfiles/zsh/proxy ]; then
     source ~/.dotfiles/zsh/proxy
+    # Export both lowercase (POSIX convention, expected by curl/git/wget/npm/etc.)
+    # and uppercase variants (expected by some tools/CI systems) so every proxy
+    # consumer picks up the setting regardless of the case it looks for.
+    export {http,https,ftp,rsync,all}_proxy=$http_proxy
     export {HTTP,HTTPS,FTP,RSYNC,DNS,ALL}_PROXY=$http_proxy
 fi
 
@@ -39,14 +43,14 @@ antigen bundle python
 # antigen bundle virtualenv
 
 # Load the theme.
-# antigen theme gallifrey 
+# antigen theme gallifrey
 # antigen theme KuoE0/oh-my-zsh-solarized-powerline-theme solarized-powerline
 # antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # Tell antigen that you're done.
 antigen apply
 
-## ZSH Theme 
+## ZSH Theme
 PROMPT='%{$FG[245]%}%m:%{$reset_color%}%2~ %B»%b '
 # PROMPT='%{$FG[245]%}%m%{$reset_color%} %2~ $(git_prompt_info)%{$reset_color%}%B»%b '
 RPROMPT='$(git_prompt_info)%{$reset_color%}'
@@ -64,7 +68,7 @@ ZSH_THEME_GIT_PROMPT_MODIFIED=" ✹"
 ZSH_THEME_GIT_PROMPT_DELETED=" ✖"
 ZSH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
 ZSH_THEME_GIT_PROMPT_RENAMED=" ➜"
-ZSH_THEME_GIT_PROMPT_UNMERGED=" ═" 
+ZSH_THEME_GIT_PROMPT_UNMERGED=" ═"
 
 # Uncomment this to  check available colors
 # spectrum_ls
@@ -103,3 +107,4 @@ if [ -f '/home/romain/Projects/perso/atlas-in-the-cloud/sdk/google-cloud-sdk/pat
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/romain/Projects/perso/atlas-in-the-cloud/sdk/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/romain/Projects/perso/atlas-in-the-cloud/sdk/google-cloud-sdk/completion.zsh.inc'; fi
+

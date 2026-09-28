@@ -56,11 +56,10 @@ map("", "<F4>", "<cmd>TagbarToggle<cr>")
 -- Escape from the nvim terminal with ESC
 map("t", "<Esc>", [[<C-\><C-n>]])
 
--- Find files using Telescope command-line sugar
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+-- Telescope mappings (<leader>ff/fg/fb/fh) live in lua/plugins/telescope.lua so
+-- that lazy.nvim owns them. Defining them here would overwrite lazy.nvim's
+-- lazy-loading stubs, which lazy.nvim then deletes when the plugin loads,
+-- leaving the shortcuts dead after their first use.
 
 -- coc-explorer
 map("n", "<space>e", "<cmd>CocCommand explorer<cr>")

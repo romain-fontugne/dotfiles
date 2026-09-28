@@ -1,7 +1,7 @@
 -- Completion and AI assistants
 
 return {
-  { "hrsh7th/nvim-cmp", event = "InsertEnter", opts = {} },
+  { "hrsh7th/nvim-cmp", event = "InsertEnter" },
 
   {
     "zbirenbaum/copilot.lua",
@@ -76,30 +76,22 @@ return {
       providers = {
          claude = {
             auth_type = "max",
-            model = "claude-sonnet-5",
+            model = "claude-opus-5",
             endpoint = "https://api.anthropic.com",
-            timeout = 30000, -- Timeout in milliseconds
+            timeout = 300000, -- Timeout in milliseconds
         },
         ["claude-sonnet5"] = {
             __inherited_from = "claude",
-            endpoint = "https://api.anthropic.com",
-            auth_type = "max",
             model = "claude-sonnet-5",
-            timeout = 30000, -- Timeout in milliseconds
         },
-        ["claude-opus5"] = {
+        ["claude-opus5-5"] = {
             __inherited_from = "claude",
-            endpoint = "https://api.anthropic.com",
-            auth_type = "max",
-            model = "claude-opus-5",
-            timeout = 30000, -- Timeout in milliseconds
+            model = "claude-opus-5-5",
         },
         ["claude-fable5"] = {
             __inherited_from = "claude",
-            endpoint = "https://api.anthropic.com",
-            auth_type = "max",
             model = "claude-fable-5",
-            timeout = 30000, -- Timeout in milliseconds
+            timeout = 600000, -- Timeout in milliseconds
         },
         copilot = {
             model = "claude-sonnet-4.5",
@@ -107,8 +99,19 @@ return {
             endpoint = "https://api.githubcopilot.com",
             allow_insecure = false,
             timeout = 10 * 60 * 1000,
-            max_completion_tokens = 1000000,
+            max_completion_tokens = 128000,
             reasoning_effort = "high",
+        },
+        ollama = {
+            endpoint = "http://127.0.0.1:11434",
+            model = "muse-glimmer", -- or another coding model like qwen3-coder:30b
+            --model = "qwq:32b", -- or another coding model like qwen3-coder:30b
+            extra_request_body = {
+               options = {
+                   num_ctx = 128000,
+                   -- temperature = 0,
+               },
+            },
         },
       },
       web_search_engine = {
