@@ -4,12 +4,6 @@ return {
   { "hrsh7th/nvim-cmp", event = "InsertEnter" },
 
   {
-    "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
-    opts = {},
-  },
-
-  {
     "ravitemer/mcphub.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
@@ -42,7 +36,6 @@ return {
       -- optional deps
       "nvim-tree/nvim-web-devicons",
       "hrsh7th/nvim-cmp",
-      "zbirenbaum/copilot.lua",
       "ibhagwan/fzf-lua",
       "stevearc/dressing.nvim",
       "folke/snacks.nvim",
@@ -92,15 +85,6 @@ return {
             __inherited_from = "claude",
             model = "claude-fable-5",
             timeout = 600000, -- Timeout in milliseconds
-        },
-        copilot = {
-            model = "claude-sonnet-4.5",
-            -- model = "gpt-5-mini",
-            endpoint = "https://api.githubcopilot.com",
-            allow_insecure = false,
-            timeout = 10 * 60 * 1000,
-            max_completion_tokens = 128000,
-            reasoning_effort = "high",
         },
         ollama = {
             endpoint = "http://127.0.0.1:11434",
