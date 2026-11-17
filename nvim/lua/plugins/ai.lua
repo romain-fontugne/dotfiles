@@ -86,16 +86,11 @@ return {
             model = "claude-fable-5",
             timeout = 600000, -- Timeout in milliseconds
         },
-        ollama = {
-            endpoint = "http://127.0.0.1:11434",
-            model = "muse-glimmer", -- or another coding model like qwen3-coder:30b
-            --model = "qwq:32b", -- or another coding model like qwen3-coder:30b
-            extra_request_body = {
-               options = {
-                   num_ctx = 128000,
-                   -- temperature = 0,
-               },
-            },
+        ["local-iij"] = {
+            __inherited_from = "openai",
+            api_key_name = "",
+            endpoint = "http://llm.iiji.jp/v1",
+            model = "iij-code",
         },
       },
       web_search_engine = {
